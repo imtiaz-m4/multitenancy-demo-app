@@ -14,6 +14,7 @@ Unrelease changes are tracked here.
 
 ### Changed
 - Multitenancy implementation custom classes moved to new namespace
+- tenant identifier key names to understand usage of them
 
 ## [0.0.1] - 2017-08-28
 ### Added

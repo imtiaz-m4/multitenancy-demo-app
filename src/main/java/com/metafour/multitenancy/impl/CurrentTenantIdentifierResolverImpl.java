@@ -29,7 +29,7 @@ public class CurrentTenantIdentifierResolverImpl implements CurrentTenantIdentif
 	private String resolveTenantByRequestPath() {
 		RequestAttributes attr = RequestContextHolder.getRequestAttributes();
 		if (attr != null) {
-			String id = (String) attr.getAttribute(CURRENT_TENANT_ID_STR, RequestAttributes.SCOPE_REQUEST);
+			String id = (String) attr.getAttribute(CURRENT_TENANT_ID_KEY, RequestAttributes.SCOPE_REQUEST);
 			if (id != null) return id;
 		}
 		return DEFAULT_TENANT_ID;

@@ -28,7 +28,7 @@ public class MultiTenancyInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object handler) throws Exception {
 		Map<String, Object> vars = (Map<String, Object>) req.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
-		if (vars.containsKey(TENANT_ID_STR)) req.setAttribute(CURRENT_TENANT_ID_STR, vars.get(TENANT_ID_STR));
+		if (vars.containsKey(TENANT_ID_KEY)) req.setAttribute(CURRENT_TENANT_ID_KEY, vars.get(TENANT_ID_KEY));
 		return true;
 	}
 }

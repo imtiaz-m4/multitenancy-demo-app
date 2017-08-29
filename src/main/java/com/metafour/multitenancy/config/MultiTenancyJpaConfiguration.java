@@ -18,7 +18,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import com.metafour.multitenancy.bean.Employee;
+import com.metafour.multitenancy.impl.CurrentTenantIdentifierResolverImpl;
 
+/**
+ * Gather multitenant setup for Hibernate and prepare Spring {@link LocalContainerEntityManagerFactoryBean} to be injected into Spring IOC.
+ *  
+ * @author Imtiaz Rahi
+ * @since 2017-08-25
+ * @see DataSourceBasedMultiTenantConnectionProviderImpl
+ * @see CurrentTenantIdentifierResolverImpl
+ * @see DataSourceConfig
+ */
 @Configuration
 @EnableConfigurationProperties(JpaProperties.class)
 public class MultiTenancyJpaConfiguration {
@@ -39,7 +49,6 @@ public class MultiTenancyJpaConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder) {
 		Map<String, Object> hibernateProps = new LinkedHashMap<>();
 		hibernateProps.putAll(jpaProperties.getHibernateProperties(dataSource));
-
 		hibernateProps.put(Environment.MULTI_TENANT, MultiTenancyStrategy.DATABASE);
 		hibernateProps.put(Environment.MULTI_TENANT_CONNECTION_PROVIDER, multiTenantConnectionProvider);
 		hibernateProps.put(Environment.MULTI_TENANT_IDENTIFIER_RESOLVER, currentTenantIdentifierResolver);

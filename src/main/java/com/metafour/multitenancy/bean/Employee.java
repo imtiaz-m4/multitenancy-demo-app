@@ -10,6 +10,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+/**
+ * Employee JPA entity, enhanced using lombok.
+ * 
+ * @author Imtiaz Rahi
+ * @since 2017-08-25
+ * @see EmployeeRepository
+ */
 @Entity
 @Data @NoArgsConstructor
 public class Employee {

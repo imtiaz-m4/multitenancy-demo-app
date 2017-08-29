@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 Unrelease changes are tracked here.
 
+## [0.1.1] - 2017-08-28
+### Added
+- namespace for multitenancy implementation custom classes
+- Necessary comments added to classes with creation date
+
+### Changed
+- Multitenancy implementation custom classes moved to new namespace
 
 ## [0.0.1] - 2017-08-28
 ### Added

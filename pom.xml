@@ -4,7 +4,7 @@
 
 	<groupId>com.metafour</groupId>
 	<artifactId>multitenancy-demo-app</artifactId>
-	<version>0.0.1</version>
+	<version>0.1.1</version>
 	<packaging>war</packaging>
 	<name>multitenancy-demo-app</name>
 	<description>Demo project for multitenancy with Spring Boot</description>

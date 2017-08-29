@@ -4,6 +4,22 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
+/**
+ * Bean to automatically fill-up configuration from {@code multitenant.properties} file.
+ * 
+ * <pre>
+ * <code>
+ * spring.multitenancy.datasource1.url = jdbc:postgresql://localhost:5432/tenant_1
+ * spring.multitenancy.datasource1.username = username
+ * spring.multitenancy.datasource1.password = password
+ * spring.multitenancy.datasource1.driver-class-name = org.postgresql.Driver
+ * </code>
+ * </pre>
+ * 
+ * @author Imtiaz Rahi
+ * @since 2017-08-25
+ * @see DataSourceConfig
+ */
 @ConfigurationProperties("spring.multitenancy")
 public class MultitenancyProperties {
 

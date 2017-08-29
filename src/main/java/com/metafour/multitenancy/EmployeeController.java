@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.metafour.multitenancy.bean.Employee;
 import com.metafour.multitenancy.bean.EmployeeRepository;
 
+/**
+ * Spring controller to handle employee list, add calls.
+ * 
+ * @author Imtiaz Rahi
+ * @since 2017-08-25
+ */
 @Controller
 @RequestMapping("/{tenantid}")
 public class EmployeeController {
@@ -26,6 +32,8 @@ public class EmployeeController {
 	private EntityManager entityManager;
 
 	@RequestMapping
+	// public String employees(@RequestHeader("X-TenantID") String tenantid, Model model) {
+	// TenantContext.setCurrentTenant(tenantid);
 	public String employees(@PathVariable String tenantid, Model model) {
 		model.addAttribute("tenantid", tenantid);
 		model.addAttribute("employee", new Employee());
@@ -35,6 +43,8 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@Transactional
+	// public String addEmployee(@RequestHeader("X-TenantID") String tenantid, @ModelAttribute Employee employee, Model
+	// model) {
 	public String addEmployee(@ModelAttribute Employee employee, Model model) {
 		employeeRepository.save(employee);
 		return "redirect:/{tenantid}";
